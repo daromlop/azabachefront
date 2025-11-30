@@ -155,7 +155,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-          <p>© 2024 Azabache. Todos los derechos reservados.</p>
+          <p>© 2025 Azabache. Todos los derechos reservados.</p>
           <div className="mt-2 space-x-4">
             <Link href="/privacidad" className="hover:text-white transition-colors">
               Política de Privacidad

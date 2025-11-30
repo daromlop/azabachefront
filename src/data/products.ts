@@ -21,10 +21,10 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.8,
     reviews: [
-      { id: 'r1', userName: 'María G.', rating: 5, comment: '¡Precioso! Tal como en las fotos.', date: '2024-11-15' },
-      { id: 'r2', userName: 'Carlos P.', rating: 5, comment: 'Regalo perfecto para mi novia fan de HP.', date: '2024-11-10' }
+      { id: 'r1', userName: 'María G.', rating: 5, comment: '¡Precioso! Tal como en las fotos.', date: '2025-11-15' },
+      { id: 'r2', userName: 'Carlos P.', rating: 5, comment: 'Regalo perfecto para mi novia fan de HP.', date: '2025-11-10' }
     ],
-    createdAt: '2024-01-15'
+    createdAt: '2025-01-15'
   },
   {
     id: '2',
@@ -45,9 +45,9 @@ export const products: Product[] = [
     onSale: true,
     rating: 4.9,
     reviews: [
-      { id: 'r3', userName: 'Laura M.', rating: 5, comment: 'Absolutamente hermoso, muy detallado.', date: '2024-11-20' }
+      { id: 'r3', userName: 'Laura M.', rating: 5, comment: 'Absolutamente hermoso, muy detallado.', date: '2025-11-20' }
     ],
-    createdAt: '2024-02-20'
+    createdAt: '2025-02-20'
   },
   {
     id: '3',
@@ -67,7 +67,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.7,
     reviews: [],
-    createdAt: '2024-11-01'
+    createdAt: '2025-11-01'
   },
   {
     id: '4',
@@ -87,9 +87,9 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.6,
     reviews: [
-      { id: 'r4', userName: 'Pedro S.', rating: 4, comment: 'Muy bonito, aunque un poco más pequeño de lo esperado.', date: '2024-10-05' }
+      { id: 'r4', userName: 'Pedro S.', rating: 4, comment: 'Muy bonito, aunque un poco más pequeño de lo esperado.', date: '2025-10-05' }
     ],
-    createdAt: '2024-03-10'
+    createdAt: '2025-03-10'
   },
 
   // JOYERÍA - PENDIENTES
@@ -111,9 +111,9 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.8,
     reviews: [
-      { id: 'r5', userName: 'Ana R.', rating: 5, comment: '¡Son preciosos! Muy ligeros y cómodos.', date: '2024-11-18' }
+      { id: 'r5', userName: 'Ana R.', rating: 5, comment: '¡Son preciosos! Muy ligeros y cómodos.', date: '2025-11-18' }
     ],
-    createdAt: '2024-04-15'
+    createdAt: '2025-04-15'
   },
   {
     id: '6',
@@ -133,7 +133,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.9,
     reviews: [],
-    createdAt: '2024-11-10'
+    createdAt: '2025-11-10'
   },
   {
     id: '7',
@@ -154,9 +154,9 @@ export const products: Product[] = [
     onSale: true,
     rating: 4.7,
     reviews: [
-      { id: 'r6', userName: 'Elena V.', rating: 5, comment: 'Perfectos para el día a día, muy discretos.', date: '2024-10-25' }
+      { id: 'r6', userName: 'Elena V.', rating: 5, comment: 'Perfectos para el día a día, muy discretos.', date: '2025-10-25' }
     ],
-    createdAt: '2024-05-20'
+    createdAt: '2025-05-20'
   },
 
   // JOYERÍA - PULSERAS
@@ -178,7 +178,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.5,
     reviews: [],
-    createdAt: '2024-06-10'
+    createdAt: '2025-06-10'
   },
   {
     id: '9',
@@ -198,9 +198,9 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.8,
     reviews: [
-      { id: 'r7', userName: 'Sara L.', rating: 5, comment: 'Los charms son súper detallados, me encanta.', date: '2024-11-12' }
+      { id: 'r7', userName: 'Sara L.', rating: 5, comment: 'Los charms son súper detallados, me encanta.', date: '2025-11-12' }
     ],
-    createdAt: '2024-07-05'
+    createdAt: '2025-07-05'
   },
   {
     id: '10',
@@ -220,7 +220,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.6,
     reviews: [],
-    createdAt: '2024-11-05'
+    createdAt: '2025-11-05'
   },
 
   // JOYERÍA - ANILLOS
@@ -242,9 +242,9 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.9,
     reviews: [
-      { id: 'r8', userName: 'Diego M.', rating: 5, comment: 'Increíble que brille en la oscuridad, muy chulo.', date: '2024-11-22' }
+      { id: 'r8', userName: 'Diego M.', rating: 5, comment: 'Increíble que brille en la oscuridad, muy chulo.', date: '2025-11-22' }
     ],
-    createdAt: '2024-01-20'
+    createdAt: '2025-01-20'
   },
   {
     id: '12',
@@ -264,7 +264,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.7,
     reviews: [],
-    createdAt: '2024-08-15'
+    createdAt: '2025-08-15'
   },
 
   // JOYERÍA - BROCHES
@@ -286,7 +286,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.6,
     reviews: [],
-    createdAt: '2024-09-01'
+    createdAt: '2025-09-01'
   },
   {
     id: '14',
@@ -307,9 +307,9 @@ export const products: Product[] = [
     onSale: true,
     rating: 4.8,
     reviews: [
-      { id: 'r9', userName: 'Luna S.', rating: 5, comment: '¡Es tan cute! Lo llevo en mi mochila.', date: '2024-11-08' }
+      { id: 'r9', userName: 'Luna S.', rating: 5, comment: '¡Es tan cute! Lo llevo en mi mochila.', date: '2025-11-08' }
     ],
-    createdAt: '2024-04-20'
+    createdAt: '2025-04-20'
   },
 
   // ARTE - PRINTS
@@ -331,9 +331,9 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.9,
     reviews: [
-      { id: 'r10', userName: 'Marta C.', rating: 5, comment: 'Los colores son increíbles, ya lo tengo enmarcado.', date: '2024-11-19' }
+      { id: 'r10', userName: 'Marta C.', rating: 5, comment: 'Los colores son increíbles, ya lo tengo enmarcado.', date: '2025-11-19' }
     ],
-    createdAt: '2024-02-10'
+    createdAt: '2025-02-10'
   },
   {
     id: '16',
@@ -353,7 +353,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.8,
     reviews: [],
-    createdAt: '2024-03-15'
+    createdAt: '2025-03-15'
   },
   {
     id: '17',
@@ -373,7 +373,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.7,
     reviews: [],
-    createdAt: '2024-11-15'
+    createdAt: '2025-11-15'
   },
   {
     id: '18',
@@ -394,7 +394,7 @@ export const products: Product[] = [
     onSale: true,
     rating: 4.6,
     reviews: [],
-    createdAt: '2024-05-10'
+    createdAt: '2025-05-10'
   },
 
   // ARTE - STICKERS
@@ -416,9 +416,9 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.9,
     reviews: [
-      { id: 'r11', userName: 'Nerea P.', rating: 5, comment: 'Son preciosos y el efecto holográfico es genial.', date: '2024-11-21' }
+      { id: 'r11', userName: 'Nerea P.', rating: 5, comment: 'Son preciosos y el efecto holográfico es genial.', date: '2025-11-21' }
     ],
-    createdAt: '2024-06-20'
+    createdAt: '2025-06-20'
   },
   {
     id: '20',
@@ -438,7 +438,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.7,
     reviews: [],
-    createdAt: '2024-07-15'
+    createdAt: '2025-07-15'
   },
 
   // ARTE - MARCAPÁGINAS
@@ -460,7 +460,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.5,
     reviews: [],
-    createdAt: '2024-08-10'
+    createdAt: '2025-08-10'
   },
   {
     id: '22',
@@ -480,7 +480,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.8,
     reviews: [],
-    createdAt: '2024-11-08'
+    createdAt: '2025-11-08'
   },
 
   // ARTE - POSTALES
@@ -502,7 +502,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.6,
     reviews: [],
-    createdAt: '2024-09-15'
+    createdAt: '2025-09-15'
   },
   {
     id: '24',
@@ -522,7 +522,7 @@ export const products: Product[] = [
     onSale: false,
     rating: 4.7,
     reviews: [],
-    createdAt: '2024-10-01'
+    createdAt: '2025-10-01'
   }
 ];
 
@@ -530,10 +530,10 @@ export const products: Product[] = [
 export const events: Event[] = [
   {
     id: 'e1',
-    name: 'Mangafest 2024',
+    name: 'Mangafest 2025',
     location: 'FIBES - Sevilla',
-    date: '2024-12-06',
-    endDate: '2024-12-08',
+    date: '2025-12-05',
+    endDate: '2025-12-07',
     description: 'El mayor evento de cultura japonesa y manga del sur de España. ¡Nos vemos en nuestro stand con todas las novedades!',
     image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600',
     standNumber: 'A-42'
@@ -542,8 +542,8 @@ export const events: Event[] = [
     id: 'e2',
     name: 'Salón del Cómic de Granada',
     location: 'Palacio de Congresos - Granada',
-    date: '2025-01-15',
-    endDate: '2025-01-16',
+    date: '2026-01-17',
+    endDate: '2026-01-18',
     description: 'Feria de cómic, manga y cultura alternativa. Presentaremos nuestra nueva colección de joyería Dark Academia.',
     image: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=600',
     standNumber: 'B-15'
@@ -552,7 +552,7 @@ export const events: Event[] = [
     id: 'e3',
     name: 'Friki Market Málaga',
     location: 'Centro Comercial Larios - Málaga',
-    date: '2025-02-08',
+    date: '2026-02-14',
     description: 'Mercadillo mensual de productos frikis. Ediciones limitadas y descuentos especiales solo disponibles en el evento.',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600',
     standNumber: 'Mesa 7'
@@ -561,8 +561,8 @@ export const events: Event[] = [
     id: 'e4',
     name: 'Japan Weekend Madrid',
     location: 'IFEMA - Madrid',
-    date: '2025-03-22',
-    endDate: '2025-03-23',
+    date: '2026-03-21',
+    endDate: '2026-03-22',
     description: 'El evento más grande de cultura japonesa en España. No te pierdas nuestras exclusivas de evento.',
     image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600',
     standNumber: 'Por confirmar'
