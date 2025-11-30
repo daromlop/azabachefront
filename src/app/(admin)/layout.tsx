@@ -136,14 +136,6 @@ function AdminLayoutContent({
           {children}
         </main>
       </div>
-
-      {/* Admin Footer */}
-      <footer className="lg:ml-64 bg-white border-t border-gray-200 py-4 px-6">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
-          <p>© 2025 Azabache - Panel de Administración</p>
-          <p>Desarrollado con 💜 por Rosa</p>
-        </div>
-      </footer>
     </div>
   );
 }
