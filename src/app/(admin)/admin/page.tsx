@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
@@ -15,13 +16,22 @@ import { Product } from '@/types';
 
 type Tab = 'dashboard' | 'products' | 'events' | 'settings';
 
-export default function AdminPage() {
+function AdminPageContent() {
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get('tab') as Tab | null;
   const [activeTab, setActiveTab] = useState<Tab>('dashboard');
   const [products, setProducts] = useState(initialProducts);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAddingProduct, setIsAddingProduct] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isAddingEvent, setIsAddingEvent] = useState(false);
+
+  // Sincronizar el tab activo con el parámetro de URL
+  useEffect(() => {
+    if (tabParam && ['dashboard', 'products', 'events', 'settings'].includes(tabParam)) {
+      setActiveTab(tabParam);
+    }
+  }, [tabParam]);
 
   const filteredProducts = products.filter(p => 
     p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -597,5 +607,17 @@ export default function AdminPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function AdminPage() {
+  return (
+    <Suspense fallback={
+      <div className="p-8 flex items-center justify-center min-h-full">
+        <div className="text-gray-500">Cargando panel de administración...</div>
+      </div>
+    }>
+      <AdminPageContent />
+    </Suspense>
   );
 }

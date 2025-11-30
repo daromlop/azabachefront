@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { 
   LayoutDashboard, 
   Package, 
@@ -12,21 +12,23 @@ import {
   X,
   Home
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 
-export default function AdminLayout({
+function AdminLayoutContent({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentTab = searchParams.get('tab') || 'dashboard';
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navItems = [
-    { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
-    { href: '/admin/products', icon: Package, label: 'Productos' },
-    { href: '/admin/events', icon: Calendar, label: 'Eventos' },
-    { href: '/admin/settings', icon: Settings, label: 'Configuración' },
+    { href: '/admin?tab=dashboard', icon: LayoutDashboard, label: 'Dashboard', tab: 'dashboard' },
+    { href: '/admin?tab=products', icon: Package, label: 'Productos', tab: 'products' },
+    { href: '/admin?tab=events', icon: Calendar, label: 'Eventos', tab: 'events' },
+    { href: '/admin?tab=settings', icon: Settings, label: 'Configuración', tab: 'settings' },
   ];
 
   return (
@@ -72,12 +74,13 @@ export default function AdminLayout({
           <nav className="p-4 space-y-2">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href;
+              const isActive = currentTab === item.tab;
               
               return (
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setSidebarOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                     isActive 
                       ? 'bg-[#9A5073] text-white' 
@@ -107,7 +110,7 @@ export default function AdminLayout({
           <nav className="p-4 space-y-2">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href;
+              const isActive = currentTab === item.tab;
               
               return (
                 <Link
@@ -142,5 +145,17 @@ export default function AdminLayout({
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gray-100 flex items-center justify-center">Cargando...</div>}>
+      <AdminLayoutContent>{children}</AdminLayoutContent>
+    </Suspense>
   );
 }
