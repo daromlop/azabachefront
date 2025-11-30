@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lora } from "next/font/google";
 import "./globals.css";
-import { Header, Footer } from "@/components";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -39,9 +38,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${lora.variable} antialiased bg-[#FFF5FB]`}
         style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}
       >
-        <Header />
-        <main className="min-h-screen bg-[#FFF5FB]">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
