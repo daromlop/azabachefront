@@ -660,7 +660,7 @@ function AdminPageContent() {
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl">
             {/* Header del Modal */}
-            <div className="bg-gradient-to-r from-[#D4AF37] to-[#b8962e] p-5 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#9A5073] to-[#7a3d5a] p-5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="bg-white/20 p-2 rounded-lg">
                   <Calendar className="h-6 w-6 text-white" />
@@ -685,26 +685,26 @@ function AdminPageContent() {
               {/* Nombre del evento */}
               <div>
                 <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                  <Calendar className="h-4 w-4 text-[#D4AF37]" />
+                  <Calendar className="h-4 w-4 text-[#9A5073]" />
                   Nombre del evento
                 </label>
                 <input 
                   type="text" 
                   placeholder="Ej: Mangafest 2025" 
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
                 />
               </div>
               
               {/* Descripción */}
               <div>
                 <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                  <FileText className="h-4 w-4 text-[#D4AF37]" />
+                  <FileText className="h-4 w-4 text-[#9A5073]" />
                   Descripción
                 </label>
                 <textarea 
                   rows={3} 
                   placeholder="Describe el evento y lo que ofrecerás..." 
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all resize-none" 
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all resize-none" 
                 />
               </div>
               
@@ -712,23 +712,23 @@ function AdminPageContent() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                    <Clock className="h-4 w-4 text-[#D4AF37]" />
+                    <Clock className="h-4 w-4 text-[#9A5073]" />
                     Fecha del evento
                   </label>
                   <input 
                     type="date" 
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
                   />
                 </div>
                 <div>
                   <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                    <MapPin className="h-4 w-4 text-[#D4AF37]" />
+                    <MapPin className="h-4 w-4 text-[#9A5073]" />
                     Ubicación
                   </label>
                   <input 
                     type="text" 
                     placeholder="Ej: FIBES, Sevilla" 
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
                   />
                 </div>
               </div>
@@ -736,22 +736,22 @@ function AdminPageContent() {
               {/* Imagen */}
               <div>
                 <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                  <ImageIcon className="h-4 w-4 text-[#D4AF37]" />
+                  <ImageIcon className="h-4 w-4 text-[#9A5073]" />
                   URL de la imagen
                 </label>
                 <input 
                   type="url" 
                   placeholder="https://ejemplo.com/imagen-evento.jpg" 
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
                 />
                 <p className="text-xs text-gray-400 mt-1">Añade una imagen representativa del evento</p>
               </div>
               
               {/* Info box */}
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
                 <div className="flex gap-3">
-                  <Info className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
-                  <div className="text-sm text-amber-800">
+                  <Info className="h-5 w-5 text-purple-600 shrink-0 mt-0.5" />
+                  <div className="text-sm text-purple-800">
                     <p className="font-medium">Este evento se mostrará en:</p>
                     <ul className="mt-1 space-y-1">
                       <li>• Sección "Próximos Eventos" de la página principal</li>
@@ -770,7 +770,7 @@ function AdminPageContent() {
               >
                 Cancelar
               </button>
-              <button className="flex-1 px-4 py-3 bg-gradient-to-r from-[#D4AF37] to-[#b8962e] text-white rounded-xl font-medium hover:shadow-lg hover:scale-[1.02] transition-all">
+              <button className="flex-1 px-4 py-3 bg-gradient-to-r from-[#9A5073] to-[#7a3d5a] text-white rounded-xl font-medium hover:shadow-lg hover:scale-[1.02] transition-all">
                 + Crear Evento
               </button>
             </div>
