@@ -198,18 +198,18 @@ export default function Header() {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t animate-slide-down">
-            <nav className="container mx-auto px-4 py-4 space-y-4">
-              <Link href="/" className="block text-gray-700 hover:text-[#9A5073]" onClick={() => setIsMenuOpen(false)}>
+          <div className="lg:hidden bg-white border-t animate-slide-down max-h-[80vh] overflow-y-auto">
+            <nav className="container mx-auto px-4 py-4 space-y-2">
+              <Link href="/" className="block py-3 text-gray-700 hover:text-[#9A5073] border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>
                 Inicio
               </Link>
-              <div className="space-y-2">
-                <p className="font-semibold text-[#9A5073]">Categorías</p>
+              <div className="py-3 border-b border-gray-100">
+                <p className="font-semibold text-[#9A5073] mb-2">Categorías</p>
                 {categories.map((category) => (
-                  <div key={category.id} className="ml-4">
+                  <div key={category.id} className="ml-2">
                     <Link 
                       href={`/tienda?category=${category.slug}`}
-                      className="block text-gray-600 hover:text-[#9A5073]"
+                      className="block py-2 text-gray-600 hover:text-[#9A5073]"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {category.name}
@@ -217,14 +217,14 @@ export default function Header() {
                   </div>
                 ))}
               </div>
-              <div className="space-y-2">
-                <p className="font-semibold text-[#9A5073]">Temáticas</p>
-                <div className="ml-4 grid grid-cols-2 gap-2">
+              <div className="py-3 border-b border-gray-100">
+                <p className="font-semibold text-[#9A5073] mb-2">Temáticas</p>
+                <div className="ml-2 grid grid-cols-2 gap-1">
                   {themes.map((theme) => (
                     <Link
                       key={theme.id}
                       href={`/tienda?theme=${theme.id}`}
-                      className="text-sm text-gray-600 hover:text-[#9A5073]"
+                      className="py-2 text-sm text-gray-600 hover:text-[#9A5073]"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {theme.icon} {theme.name}
@@ -232,16 +232,16 @@ export default function Header() {
                   ))}
                 </div>
               </div>
-              <Link href="/tienda" className="block text-gray-700 hover:text-[#9A5073]" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/tienda" className="block py-3 text-gray-700 hover:text-[#9A5073] border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>
                 Tienda
               </Link>
-              <Link href="/eventos" className="block text-gray-700 hover:text-[#9A5073]" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/eventos" className="block py-3 text-gray-700 hover:text-[#9A5073] border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>
                 Eventos
               </Link>
-              <Link href="/sobre-nosotros" className="block text-gray-700 hover:text-[#9A5073]" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/sobre-nosotros" className="block py-3 text-gray-700 hover:text-[#9A5073] border-b border-gray-100" onClick={() => setIsMenuOpen(false)}>
                 Sobre Nosotros
               </Link>
-              <Link href="/admin" className="block text-gray-700 hover:text-[#9A5073]" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/admin" className="block py-3 text-gray-700 hover:text-[#9A5073]" onClick={() => setIsMenuOpen(false)}>
                 Admin
               </Link>
             </nav>

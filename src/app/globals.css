@@ -248,3 +248,64 @@ input:focus, textarea:focus, select:focus {
 .fancy-underline:hover::after {
   width: 100%;
 }
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  /* Increase tap targets on mobile */
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent {
+    padding: 1rem 1.5rem;
+    min-height: 48px;
+  }
+
+  /* Ensure proper touch scrolling */
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hide desktop-only hover effects */
+  .card-hover:hover {
+    transform: none;
+  }
+}
+
+/* Touch-friendly styles */
+@media (hover: none) and (pointer: coarse) {
+  .card-hover:hover {
+    transform: none;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-accent:hover {
+    transform: none;
+  }
+}
+
+/* Safe area insets for mobile devices with notches */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.3;
+  }
+}
