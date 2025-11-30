@@ -510,98 +510,269 @@ function AdminPageContent() {
 
       {/* ==================== MODALS ==================== */}
       {(isAddingProduct || editingProduct) && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white p-4 border-b flex items-center justify-between">
-              <h2 className="text-xl font-bold">{editingProduct ? 'Editar Producto' : 'Nuevo Producto'}</h2>
-              <button onClick={() => { setIsAddingProduct(false); setEditingProduct(null); }} className="p-2 hover:bg-gray-100 rounded-lg">
-                <X className="h-6 w-6" />
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl">
+            {/* Header del Modal */}
+            <div className="bg-gradient-to-r from-[#9A5073] to-[#7a3d5a] p-5 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="bg-white/20 p-2 rounded-lg">
+                  <Package className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-playfair), serif' }}>
+                    {editingProduct ? 'Editar Producto' : 'Nuevo Producto'}
+                  </h2>
+                  <p className="text-white/70 text-sm">
+                    {editingProduct ? 'Modifica los detalles del producto' : 'Añade un nuevo producto a tu catálogo'}
+                  </p>
+                </div>
+              </div>
+              <button 
+                onClick={() => { setIsAddingProduct(false); setEditingProduct(null); }} 
+                className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+              >
+                <X className="h-6 w-6 text-white" />
               </button>
             </div>
-            <div className="p-4 space-y-4">
+            
+            {/* Contenido del Modal */}
+            <div className="p-6 space-y-5 overflow-y-auto max-h-[calc(90vh-180px)]">
+              {/* Nombre */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Nombre *</label>
-                <input type="text" defaultValue={editingProduct?.name || ''} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <Tag className="h-4 w-4 text-[#9A5073]" />
+                  Nombre del producto
+                </label>
+                <input 
+                  type="text" 
+                  defaultValue={editingProduct?.name || ''} 
+                  placeholder="Ej: Colgante Reliquias de la Muerte"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
+                />
               </div>
+              
+              {/* Descripción */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Descripción *</label>
-                <textarea rows={3} defaultValue={editingProduct?.description || ''} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <FileText className="h-4 w-4 text-[#9A5073]" />
+                  Descripción
+                </label>
+                <textarea 
+                  rows={3} 
+                  defaultValue={editingProduct?.description || ''} 
+                  placeholder="Describe tu producto con detalle..."
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all resize-none" 
+                />
               </div>
+              
+              {/* Precio y Stock */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Precio (€) *</label>
-                  <input type="number" step="0.01" defaultValue={editingProduct?.price || ''} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <DollarSign className="h-4 w-4 text-[#D4AF37]" />
+                    Precio (€)
+                  </label>
+                  <input 
+                    type="number" 
+                    step="0.01" 
+                    defaultValue={editingProduct?.price || ''} 
+                    placeholder="0.00"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
+                  />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Stock *</label>
-                  <input type="number" defaultValue={editingProduct?.stock || ''} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <Package className="h-4 w-4 text-[#9A5073]" />
+                    Stock disponible
+                  </label>
+                  <input 
+                    type="number" 
+                    defaultValue={editingProduct?.stock || ''} 
+                    placeholder="0"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
+                  />
                 </div>
               </div>
+              
+              {/* Categoría y Temática */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Categoría *</label>
-                  <select defaultValue={editingProduct?.category || ''} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]">
-                    <option value="">Seleccionar...</option>
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <Store className="h-4 w-4 text-[#9A5073]" />
+                    Categoría
+                  </label>
+                  <select 
+                    defaultValue={editingProduct?.category || ''} 
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all bg-white"
+                  >
+                    <option value="">Seleccionar categoría...</option>
                     {categories.map((cat) => (<option key={cat.id} value={cat.id}>{cat.name}</option>))}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Temática *</label>
-                  <select defaultValue={editingProduct?.theme || ''} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]">
-                    <option value="">Seleccionar...</option>
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <Palette className="h-4 w-4 text-[#9A5073]" />
+                    Temática
+                  </label>
+                  <select 
+                    defaultValue={editingProduct?.theme || ''} 
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all bg-white"
+                  >
+                    <option value="">Seleccionar temática...</option>
                     {themes.map((theme) => (<option key={theme.id} value={theme.id}>{theme.icon} {theme.name}</option>))}
                   </select>
                 </div>
               </div>
+              
+              {/* Imagen */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">URL de Imagen *</label>
-                <input type="url" defaultValue={editingProduct?.images[0] || ''} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <ImageIcon className="h-4 w-4 text-[#9A5073]" />
+                  URL de la imagen
+                </label>
+                <input 
+                  type="url" 
+                  defaultValue={editingProduct?.images[0] || ''} 
+                  placeholder="https://ejemplo.com/imagen.jpg"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#9A5073] focus:ring-2 focus:ring-[#9A5073]/20 transition-all" 
+                />
+                <p className="text-xs text-gray-400 mt-1">Introduce la URL de una imagen para tu producto</p>
               </div>
             </div>
-            <div className="sticky bottom-0 bg-white p-4 border-t flex gap-3">
-              <button onClick={() => { setIsAddingProduct(false); setEditingProduct(null); }} className="flex-1 px-4 py-2 border rounded-lg hover:bg-gray-50">Cancelar</button>
-              <button className="flex-1 btn-primary">{editingProduct ? 'Guardar' : 'Crear'}</button>
+            
+            {/* Footer del Modal */}
+            <div className="bg-gray-50 px-6 py-4 border-t flex gap-3">
+              <button 
+                onClick={() => { setIsAddingProduct(false); setEditingProduct(null); }} 
+                className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl hover:bg-gray-100 font-medium text-gray-700 transition-colors"
+              >
+                Cancelar
+              </button>
+              <button className="flex-1 px-4 py-3 bg-gradient-to-r from-[#9A5073] to-[#7a3d5a] text-white rounded-xl font-medium hover:shadow-lg hover:scale-[1.02] transition-all">
+                {editingProduct ? '✓ Guardar Cambios' : '+ Crear Producto'}
+              </button>
             </div>
           </div>
         </div>
       )}
 
       {isAddingEvent && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white p-4 border-b flex items-center justify-between">
-              <h2 className="text-xl font-bold">Nuevo Evento</h2>
-              <button onClick={() => setIsAddingEvent(false)} className="p-2 hover:bg-gray-100 rounded-lg">
-                <X className="h-6 w-6" />
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl">
+            {/* Header del Modal */}
+            <div className="bg-gradient-to-r from-[#D4AF37] to-[#b8962e] p-5 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="bg-white/20 p-2 rounded-lg">
+                  <Calendar className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-playfair), serif' }}>
+                    Nuevo Evento
+                  </h2>
+                  <p className="text-white/70 text-sm">Añade un evento donde participarás</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setIsAddingEvent(false)} 
+                className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+              >
+                <X className="h-6 w-6 text-white" />
               </button>
             </div>
-            <div className="p-4 space-y-4">
+            
+            {/* Contenido del Modal */}
+            <div className="p-6 space-y-5 overflow-y-auto max-h-[calc(90vh-180px)]">
+              {/* Nombre del evento */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Nombre del Evento *</label>
-                <input type="text" placeholder="Ej: Mangafest 2025" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <Calendar className="h-4 w-4 text-[#D4AF37]" />
+                  Nombre del evento
+                </label>
+                <input 
+                  type="text" 
+                  placeholder="Ej: Mangafest 2025" 
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                />
               </div>
+              
+              {/* Descripción */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Descripción *</label>
-                <textarea rows={3} placeholder="Describe el evento..." className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <FileText className="h-4 w-4 text-[#D4AF37]" />
+                  Descripción
+                </label>
+                <textarea 
+                  rows={3} 
+                  placeholder="Describe el evento y lo que ofrecerás..." 
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all resize-none" 
+                />
               </div>
+              
+              {/* Fecha y Ubicación */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Fecha *</label>
-                  <input type="date" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <Clock className="h-4 w-4 text-[#D4AF37]" />
+                    Fecha del evento
+                  </label>
+                  <input 
+                    type="date" 
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                  />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Ubicación *</label>
-                  <input type="text" placeholder="Ej: FIBES, Sevilla" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                    <MapPin className="h-4 w-4 text-[#D4AF37]" />
+                    Ubicación
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="Ej: FIBES, Sevilla" 
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                  />
                 </div>
               </div>
+              
+              {/* Imagen */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">URL de Imagen *</label>
-                <input type="url" placeholder="https://..." className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#9A5073]" />
+                <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+                  <ImageIcon className="h-4 w-4 text-[#D4AF37]" />
+                  URL de la imagen
+                </label>
+                <input 
+                  type="url" 
+                  placeholder="https://ejemplo.com/imagen-evento.jpg" 
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 transition-all" 
+                />
+                <p className="text-xs text-gray-400 mt-1">Añade una imagen representativa del evento</p>
+              </div>
+              
+              {/* Info box */}
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                <div className="flex gap-3">
+                  <Info className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
+                  <div className="text-sm text-amber-800">
+                    <p className="font-medium">Este evento se mostrará en:</p>
+                    <ul className="mt-1 space-y-1">
+                      <li>• Sección "Próximos Eventos" de la página principal</li>
+                      <li>• Página dedicada de eventos (/eventos)</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="sticky bottom-0 bg-white p-4 border-t flex gap-3">
-              <button onClick={() => setIsAddingEvent(false)} className="flex-1 px-4 py-2 border rounded-lg hover:bg-gray-50">Cancelar</button>
-              <button className="flex-1 btn-primary">Crear Evento</button>
+            
+            {/* Footer del Modal */}
+            <div className="bg-gray-50 px-6 py-4 border-t flex gap-3">
+              <button 
+                onClick={() => setIsAddingEvent(false)} 
+                className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl hover:bg-gray-100 font-medium text-gray-700 transition-colors"
+              >
+                Cancelar
+              </button>
+              <button className="flex-1 px-4 py-3 bg-gradient-to-r from-[#D4AF37] to-[#b8962e] text-white rounded-xl font-medium hover:shadow-lg hover:scale-[1.02] transition-all">
+                + Crear Evento
+              </button>
             </div>
           </div>
         </div>
