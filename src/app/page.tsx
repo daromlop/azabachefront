@@ -22,14 +22,14 @@ export default function HomePage() {
           }} />
         </div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 text-[#D4AF37] animate-bounce opacity-60">
+        {/* Floating Elements - Hidden on mobile to avoid overlap */}
+        <div className="hidden md:block absolute top-20 left-10 text-[#D4AF37] animate-bounce opacity-60">
           <Sparkles className="h-8 w-8" />
         </div>
-        <div className="absolute bottom-32 right-20 text-[#9A5073] animate-pulse opacity-60">
+        <div className="hidden md:block absolute bottom-32 right-20 text-[#9A5073] animate-pulse opacity-60">
           <Star className="h-10 w-10" />
         </div>
-        <div className="absolute top-40 right-32 text-[#D4AF37] animate-bounce delay-300 opacity-60">
+        <div className="hidden md:block absolute top-40 right-32 text-[#D4AF37] animate-bounce delay-300 opacity-60">
           <Crown className="h-6 w-6" />
         </div>
 
