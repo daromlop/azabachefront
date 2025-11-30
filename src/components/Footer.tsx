@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1a1a1a] text-white">
       {/* Newsletter Section */}
-      <div className="bg-[#9A5073] py-12">
+      <div className="bg-[#9A5073] py-12 -mb-px">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-2">¡Únete a nuestra comunidad mágica!</h3>
           <p className="text-white/80 mb-6">Recibe novedades, ofertas exclusivas y entérate de los próximos eventos</p>
@@ -13,7 +13,7 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Tu email mágico"
-              className="flex-1 px-4 py-3 rounded-lg text-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="flex-1 px-4 py-3 rounded-lg bg-white text-[#1a1a1a] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
             />
             <button type="submit" className="btn-accent">
               Suscribirse ✨

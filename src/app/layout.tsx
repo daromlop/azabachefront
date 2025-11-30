@@ -40,7 +40,7 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-lora), Georgia, serif' }}
       >
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen bg-[#FFF5FB]">{children}</main>
         <Footer />
       </body>
     </html>
