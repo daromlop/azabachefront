@@ -132,10 +132,15 @@ function AdminLayoutContent({
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 lg:ml-64 min-h-[calc(100vh-3.5rem)]">
+        <main className="flex-1 lg:ml-64">
           {children}
         </main>
       </div>
+
+      {/* Admin Footer - Ancho completo, por encima del sidebar */}
+      <footer className="relative z-50 bg-white border-t border-gray-200 h-14 px-6 flex items-center justify-center">
+        <p className="text-sm text-gray-500">© 2025 <span className="text-gray-700 font-medium">Azabache</span> · Panel de Administración</p>
+      </footer>
     </div>
   );
 }
